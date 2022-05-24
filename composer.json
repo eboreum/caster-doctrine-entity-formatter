@@ -1,0 +1,44 @@
+{
+    "name": "eboreum/caster-doctrine-entity-formatter",
+    "description": "A caster formatter for Doctrine entities (see doctrine/orm), specifically.",
+    "type": "library",
+    "require": {
+        "php": "^8.1",
+        "ext-mbstring": "*",
+        "doctrine/annotations": "^1.0",
+        "doctrine/orm": "^2.0",
+        "eboreum/caster": "^1.0",
+        "eboreum/exceptional": "^1.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.4",
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kasper Søfren",
+            "email": "soefritz@gmail.com",
+            "homepage": "https://github.com/kafoso"
+        },
+        {
+            "name": "Carsten Jørgensen",
+            "email": "dev@corex.dk",
+            "homepage": "https://github.com/corex"
+        }
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Eboreum\\CasterDoctrineEntityFormatter\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TestResource\\Unit\\Eboreum\\CasterDoctrineEntityFormatter\\": "tests/resources/TestResource/Unit",
+            "Test\\Unit\\Eboreum\\CasterDoctrineEntityFormatter\\": "tests/tests/Test/Unit"
+        }
+    }
+}
