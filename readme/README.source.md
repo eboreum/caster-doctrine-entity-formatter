@@ -4,7 +4,7 @@ eboreum/caster-doctrine-entity-formatter
 ![license](https://img.shields.io/github/license/eboreum/caster-doctrine-entity-formatter?label=license)
 ![build](https://github.com/eboreum/caster-doctrine-entity-formatter/workflows/build/badge.svg?branch=main)
 ![codecov](https://codecov.io/gh/eboreum/caster-doctrine-entity-formatter/branch/main/graph/badge.svg)
-![PHPStan](https://img.shields.io/badge/PHPStan-Level%209-brightgreen.svg?style=flat)
+%run "readme/make-readme/make-phpstan-badge.php"%
 
 A caster formatter for Doctrine entities (see [doctrine/orm](https://packagist.org/packages/doctrine/orm)), specifically.
 
@@ -13,14 +13,7 @@ A caster formatter for Doctrine entities (see [doctrine/orm](https://packagist.o
 <a name="requirements"></a>
 # Requirements
 
-```json
-"php": "^8.1",
-"ext-mbstring": "*",
-"doctrine/annotations": "^1.0",
-"doctrine/orm": "^2.0",
-"eboreum/caster": "^1.0",
-"eboreum/exceptional": "^1.0"
-```
+%composer.json.require%
 
 For more information, see the [`composer.json`](composer.json) file.
 
@@ -61,52 +54,13 @@ For help with Doctrine annotations and/or attributes and their uses, please see:
  **Code:**
 
 ```php
-<?php
-
-declare(strict_types=1);
-
-namespace SomeCustomNamespace_9c95fb43;
-
-use Doctrine\ORM\Mapping as ORM;
-use Eboreum\Caster\Attribute\DebugIdentifier;
-use Eboreum\Caster\Caster;
-use Eboreum\Caster\Collection\Formatter\ObjectFormatterCollection;
-use Eboreum\Caster\Contract\DebugIdentifierAttributeInterface;
-use Eboreum\CasterDoctrineEntityFormatter\EntityFormatter;
-
-#[ORM\Entity]
-class User implements DebugIdentifierAttributeInterface
-{
-    #[ORM\Id]
-    public ?int $id = null;
-
-    #[DebugIdentifier]
-    public string $name = 'foo';
-}
-
-$user = new User();
-
-$caster = Caster::create()->withCustomObjectFormatterCollection(new ObjectFormatterCollection([
-    new EntityFormatter(),
-]));
-
-echo $caster->cast($user) . "\n";
-
-$user->id = 42;
-$user->name = 'bar';
-
-echo "\n";
-echo $caster->cast($user) . "\n";
-
+%include "readme/make-readme/examples/basics.php"%
 ```
 
 **Output:**
 
 ```
-\SomeCustomNamespace_9c95fb43\User {$id = (null) null, $name = (string(3)) "foo"}
-
-\SomeCustomNamespace_9c95fb43\User {$id = (int) 42, $name = (string(3)) "bar"}
-
+%run "readme/make-readme/examples/basics.php"%
 ```
 
 ## Render `DebugIdentifier` only when ID is not set
@@ -120,61 +74,13 @@ Often, when you have an ID of something, other information may end up just creat
  **Code:**
 
 ```php
-<?php
-
-declare(strict_types=1);
-
-namespace SomeCustomNamespace_fd813f94;
-
-use Doctrine\ORM\Mapping as ORM;
-use Eboreum\Caster\Attribute\DebugIdentifier;
-use Eboreum\Caster\Caster;
-use Eboreum\Caster\Collection\Formatter\ObjectFormatterCollection;
-use Eboreum\Caster\Contract\DebugIdentifierAttributeInterface;
-use Eboreum\CasterDoctrineEntityFormatter\EntityFormatter;
-
-#[ORM\Entity]
-class User implements DebugIdentifierAttributeInterface
-{
-    #[ORM\Id]
-    public ?int $id;
-
-    #[DebugIdentifier]
-    public string $name = 'foo';
-}
-
-$user = new User();
-
-$entityFormatter = new EntityFormatter();
-$entityFormatter = $entityFormatter->withIsRenderingDebugIdentifierOnlyWhenIdHasNotBeenSet(true);
-
-$caster = Caster::create()->withCustomObjectFormatterCollection(new ObjectFormatterCollection([
-    $entityFormatter,
-]));
-
-echo $caster->cast($user) . "\n";
-
-$user->id = null;
-
-echo "\n";
-echo $caster->cast($user) . "\n";
-
-$user->id = 42;
-
-echo "\n";
-echo $caster->cast($user) . "\n";
-
+%include "readme/make-readme/examples/render-debugidentifier-only-when-id-is-not-set.php"%
 ```
 
 **Output:**
 
 ```
-\SomeCustomNamespace_fd813f94\User {$id = (uninitialized), $name = (string(3)) "foo"}
-
-\SomeCustomNamespace_fd813f94\User {$id = (null) null, $name = (string(3)) "foo"}
-
-\SomeCustomNamespace_fd813f94\User {$id = (int) 42}
-
+%run "readme/make-readme/examples/render-debugidentifier-only-when-id-is-not-set.php"%
 ```
 
 # License & Disclaimer
@@ -189,5 +95,4 @@ We prefer that you create a ticket and/or a pull request at https://github.com/e
 
 ## Authors
 
-- **Kasper Søfren** (kafoso)<br>E-mail: <a href="mailto:soefritz@gmail.com">soefritz@gmail.com</a><br>Homepage: <a href="https://github.com/kafoso">https://github.com/kafoso</a>
-- **Carsten Jørgensen** (corex)<br>E-mail: <a href="mailto:dev@corex.dk">dev@corex.dk</a><br>Homepage: <a href="https://github.com/corex">https://github.com/corex</a>
+%composer.json.authors%
