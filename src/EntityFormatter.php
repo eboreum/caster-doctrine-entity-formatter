@@ -24,6 +24,17 @@ use ReflectionProperty;
  */
 class EntityFormatter extends AbstractObjectFormatter
 {
+    /**
+     * To have effect, the target entity must implement DebugIdentifierAttributeInterface and must have properties with
+     * the \Eboreum\Caster\Attribute\DebugIdentifier attribute.
+     *
+     * When `true`: When (all) the values on the properties on the entity with the attribute/annotation ORM\Id are
+     * NOT uninitialized and the values are NOT null, ONLY the ORM\Id properties are rendered.
+     *
+     * Otherwise – when either (A) the below property is `false` or (B) one or more of the ORM\Id properties on an
+     * entity are either uninitialized or null – all properties with the \Eboreum\Caster\Attribute\DebugIdentifier
+     * attribute will be rendered as well.
+     */
     protected bool $isRenderingDebugIdentifierOnlyWhenIdHasNotBeenSet = false;
 
     /**
