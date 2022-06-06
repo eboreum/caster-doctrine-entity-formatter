@@ -28,7 +28,7 @@ For more information, see the [`composer.json`](composer.json) file.
 
 Via [Composer](https://getcomposer.org/) (https://packagist.org/packages/eboreum/caster-doctrine-entity-formatter):
 
-    composer install eboreum/caster-doctrine-entity-formatter
+    composer require eboreum/caster-doctrine-entity-formatter
 
 Via GitHub:
 
