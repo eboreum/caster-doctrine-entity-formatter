@@ -44,8 +44,8 @@ jobs:
       - name: Make N/A code coverage badge in case pipeline below fails
         uses: schneegans/dynamic-badges-action@v1.4.0
         with:
-          auth: ${{ secrets.GIST_SECRET_CODE_COVERAGE_PERCENTAGE_BADGE }}
-          gistID: b1cc6b7d9d813bf647793096dac77973
+          auth: ${{ secrets.GIST_SECRET_README_BADGES }}
+          gistID: e9ca874dbc40d29add801d94ac79a663
           filename: test-coverage__${{ github.head_ref || github.ref_name }}.json
           label: Test Coverage
           message: "N/A"
@@ -54,8 +54,8 @@ jobs:
       - name: Make N/A phpstan badge in case pipeline below fails
         uses: schneegans/dynamic-badges-action@v1.4.0
         with:
-          auth: ${{ secrets.GIST_SECRET_PHPSTAN_LEVEL_BADGE }}
-          gistID: ef10032c1eab0aaaefbd2807fd0b4b82
+          auth: ${{ secrets.GIST_SECRET_README_BADGES }}
+          gistID: e9ca874dbc40d29add801d94ac79a663
           filename: phpstan-level__${{ github.head_ref || github.ref_name }}.json
           label: PHPStan Level
           message: "N/A"
@@ -69,8 +69,8 @@ jobs:
       - name: Generate code coverage percentage badge
         uses: schneegans/dynamic-badges-action@v1.4.0
         with:
-          auth: ${{ secrets.GIST_SECRET_CODE_COVERAGE_PERCENTAGE_BADGE }}
-          gistID: b1cc6b7d9d813bf647793096dac77973
+          auth: ${{ secrets.GIST_SECRET_README_BADGES }}
+          gistID: e9ca874dbc40d29add801d94ac79a663
           filename: test-coverage__${{ github.head_ref || github.ref_name }}.json
           label: Test Coverage
           message: ${{ env.COVERAGE }}%
@@ -87,8 +87,8 @@ jobs:
       - name: Generate PHPStan Level badge
         uses: schneegans/dynamic-badges-action@v1.4.0
         with:
-          auth: ${{ secrets.GIST_SECRET_PHPSTAN_LEVEL_BADGE }}
-          gistID: ef10032c1eab0aaaefbd2807fd0b4b82
+          auth: ${{ secrets.GIST_SECRET_README_BADGES }}
+          gistID: e9ca874dbc40d29add801d94ac79a663
           filename: phpstan-level__${{ github.head_ref || github.ref_name }}.json
           label: PHPStan Level
           message: ${{ env.PHPSTAN_LEVEL }}
