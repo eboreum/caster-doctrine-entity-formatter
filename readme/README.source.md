@@ -3,8 +3,8 @@ eboreum/caster-doctrine-entity-formatter
 
 ![license](https://img.shields.io/github/license/eboreum/caster-doctrine-entity-formatter?label=license)
 [![build](https://github.com/eboreum/caster-doctrine-entity-formatter/workflows/build/badge.svg?branch=main)](https://github.com/eboreum/caster-doctrine-entity-formatter/actions)
-[![Code Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/kafoso/b1cc6b7d9d813bf647793096dac77973/raw/test-coverage__main.json)](https://github.com/eboreum/caster-doctrine-entity-formatter/actions)
-[![PHPStan Level](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/kafoso/ef10032c1eab0aaaefbd2807fd0b4b82/raw/phpstan-level__main.json)](https://github.com/eboreum/caster-doctrine-entity-formatter/actions)
+[![Code Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/kafoso/e9ca874dbc40d29add801d94ac79a663/raw/test-coverage__main.json)](https://github.com/eboreum/caster-doctrine-entity-formatter/actions)
+[![PHPStan Level](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/kafoso/e9ca874dbc40d29add801d94ac79a663/raw/phpstan-level__main.json)](https://github.com/eboreum/caster-doctrine-entity-formatter/actions)
 
 A caster formatter for Doctrine entities (see [doctrine/orm](https://packagist.org/packages/doctrine/orm)), specifically.
 
